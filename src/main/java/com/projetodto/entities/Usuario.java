@@ -11,31 +11,36 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data  //Comando lombok que remove os get e setters //
-@Entity // transforma a tabela em entidade // 
-@NoArgsConstructor //Remove o metódo construtor //
-@AllArgsConstructor //Adiciona o metódo construtor de maneira oculta //
-@Table(name = "usuario") // nome da tabela //
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "pet")
+public class Pet {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotNull
+	@NotBlank
+	private String nome;
+	
+	@NotNull
+	@NotNull
+	private String documento;
+	
+	@NotNull
+	@NotBlank
+	private String nascimento;
+	
 
-public class Usuario { // declara que a class é publica //
+	private String cuidador;
 
-	@Id	// indica que é um id //
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // autoincrement //
-	private Long id; // declara a variavel//
-	
-	@NotNull // não pemite que o valor seja vazio //
-	@NotBlank // não pemite que o valor seja branco //
-	private String nome; // declara a variavel//
-	
-	@NotNull // não pemite que o valor seja vazio //
-	@NotBlank // não pemite que o valor seja vazio //
-	private String senha; // declara a variavel//
-	
-	private String permissao; // declara a variavel//
-	
-	public Usuario(String nome, String senha) { // declara valores que serão recebidos pelo usuário //
-		this.nome = nome; //indica o valor nome //
-		this.senha = senha; // indica o valor senha //
+	public Pet(String nome, String documento, String nascimento) {
+		super();
+		this.nome = nome;
+		this.documento = documento;
+		this.nascimento = nascimento;
 	}
 	
 	
